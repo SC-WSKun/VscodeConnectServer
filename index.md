@@ -1,37 +1,25 @@
-## Welcome to GitHub Pages
+## 用Vscode的Remote-SSH插件连接远程服务器时出现chanel3：open failed...的解决方案
 
-You can use the [editor on GitHub](https://github.com/SC-WSKun/Some-Tips/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+在学校做操作系统实验时，老师让我们试着用vscode连接服务器。但是一直连接不上，按照网上的教程配置了公钥、config文件后还是不能连上。后来发现需要修改服务器端的sshd_config文件才行。
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### 解决方案
 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+# 1.连接服务器
+博主已经配置过SSH，可以直接用cmd登录。也可以使用puTTY或者服务器自带的vsc登录。
+# 2.查看sshd_config代码
+![图片](https://user-images.githubusercontent.com/80083843/118526289-a9ed7b80-b772-11eb-935a-5cfe5f28da52.png)
 
-```markdown
-Syntax highlighted code block
+拉到最后看看下列几项是不是yes
 
-# Header 1
-## Header 2
-### Header 3
+![图片](https://user-images.githubusercontent.com/80083843/118526506-e325eb80-b772-11eb-9578-cd52bdb16d2d.png)
 
-- Bulleted
-- List
+如果是no的话可以用vim指令进行修改：vim etc/ssh/sshd_config
+# 3.重启SSH服务
+输入service sshd restart指令，重启服务
+![图片](https://user-images.githubusercontent.com/80083843/118527669-161caf00-b774-11eb-8eaa-1204df647490.png)
 
-1. Numbered
-2. List
+重启完应该就可以用Vscode的Remote-SSH插件连上服务器了
 
-**Bold** and _Italic_ and `Code` text
 
-[Link](url) and ![Image](src)
-```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/SC-WSKun/Some-Tips/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
