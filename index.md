@@ -17,10 +17,15 @@
 ![图片](https://user-images.githubusercontent.com/80083843/118526506-e325eb80-b772-11eb-9578-cd52bdb16d2d.png)
 
 如果是no的话可以用vim指令进行修改：
+
 vim etc/ssh/sshd_config
+
 输入i进入insert模式
+
 修改对应的代码
+
 esc退出insert模式
+
 输入：wq保存并退出
 # 3.重启SSH服务
 输入service sshd restart指令，重启服务
