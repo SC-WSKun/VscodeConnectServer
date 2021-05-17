@@ -1,8 +1,8 @@
-## 用Vscode的Remote-SSH插件连接远程服务器时出现chanel3：open failed...的解决方案
+### 用Vscode的Remote-SSH插件连接远程服务器时出现chanel3：open failed...的解决方案
 
 在学校做操作系统实验时，老师让我们试着用vscode连接服务器。但是一直连接不上，按照网上的教程配置了公钥、config文件后还是不能连上。后来发现需要修改服务器端的sshd_config文件才行。
 
-### 解决方案
+## 解决方案
 
 
 # 1.连接服务器
